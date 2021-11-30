@@ -1,0 +1,41 @@
+'Triangular.Site:Content.Container':
+  superTypes:
+    'Neos.Neos:Content': true
+    'Neos.Neos:ContentCollection': true
+    'Triangular.Site:Mixin.StandardCustomisation': true
+    'Shel.Blog:Constraint.Article': true
+  ui:
+    label: 'Container'
+    icon: square-o
+    position: 200
+    group: structure
+    inlineEditable: true
+    inspector:
+      groups:
+        settings:
+          label: 'Settings'
+  constraints:
+    nodeTypes:
+      'Triangular.Site:Content.Container': false
+  properties:
+    backgroundImage:
+      type: 'Neos\Media\Domain\Model\ImageInterface'
+      ui:
+        label: 'Background Image'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'settings'
+          editorOptions:
+            features:
+              crop: true
+              resize: true
+    backgroundPosition:
+      type: string
+      ui:
+        label: 'Adjust background image position'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'settings'
+          editor: 'Neos.Neos/Inspector/Editors/TextFieldEditor'
+          editorOptions:
+            placeholder: 'eg. center center'

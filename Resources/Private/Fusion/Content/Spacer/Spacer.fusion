@@ -1,0 +1,10 @@
+prototype(Triangular.Site:Content.Spacer) < prototype(Neos.Neos:ContentComponent) {
+    @context.node = ${node}
+
+    type = ${q(node).property('type')}
+
+
+    renderer = afx`
+        <div class={props.type}></div>
+    `
+}

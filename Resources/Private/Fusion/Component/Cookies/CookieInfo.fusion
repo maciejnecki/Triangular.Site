@@ -1,0 +1,16 @@
+prototype(Triangular.Site:Component.CookiesInfo) < prototype(Neos.Neos:ContentComponent) {
+    @context.node = ${site}
+
+    renderer = afx`
+        <div id="cookie" class="container cookie">
+            <strong>We use cookies</strong>
+            <p>
+                Cookies are small pieces of data stored on your device, which you can manage in your browser settings.
+                <br />
+                If you continue without changing your settings for this website, we'll assume that you agree to the usage of cookies.
+            </p>
+            <button class="cookieAccept secondaryColor" style="margin-right: 6px;">Accept</button>
+            <a href="/privacy-policy">About Your Privacy</a>
+        </div>
+    `
+}

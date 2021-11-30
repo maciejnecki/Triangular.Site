@@ -1,0 +1,6 @@
+* Contact Form
+[X] Blog posts
+[Author Broken Plugin?] Image galleries
+[X] code block
+[X] Cookies notice
+[X] Color picker

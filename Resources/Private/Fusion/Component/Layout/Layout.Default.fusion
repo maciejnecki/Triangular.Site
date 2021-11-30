@@ -1,0 +1,19 @@
+prototype(Triangular.Site:Component.Layout.Default) < prototype(Neos.Fusion:Component) {
+    content = ''
+
+    cookies = Neos.Fusion:Case {
+      message {
+          condition = ${site.context.inBackend ? false : true}
+          renderer = afx`
+              <Triangular.Site:Component.CookiesInfo />
+          `
+      }
+    }
+
+    renderer = afx`
+        <Triangular.Site:Component.Header />
+        {props.content}
+        {props.cookies}
+        <Triangular.Site:Component.Footer />
+    `
+}

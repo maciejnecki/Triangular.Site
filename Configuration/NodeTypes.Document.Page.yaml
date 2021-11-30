@@ -1,0 +1,7 @@
+'Triangular.Site:Document.Page':
+  superTypes:
+    'Triangular.Site:Document.AbstractPage': true
+  ui:
+    label: i18n
+    icon: file-o
+    position: -10

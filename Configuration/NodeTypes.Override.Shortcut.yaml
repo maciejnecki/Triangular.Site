@@ -1,0 +1,5 @@
+
+'Neos.Neos:Shortcut':
+  constraints:
+    nodeTypes:
+      'Triangular.Site:Constraint.Document.Restricted': false

@@ -1,0 +1,38 @@
+'Triangular.Site:Content.Grid':
+  superTypes:
+    'Neos.Neos:Content': true
+    'Neos.Neos:ContentCollection': true
+    'Shel.Blog:Constraint.Article': true
+  ui:
+    label: Grid
+    reloadIfChanged: true
+    icon: th
+    position: 200
+    group: structure
+    inlineEditable: true
+    inspector:
+      groups:
+        settings:
+          label: 'Settings'
+  constraints:
+    nodeTypes:
+      'Triangular.Site:Content.Grid': false
+  properties:
+    type:
+      type: string
+      defaultValue: '321'
+      ui:
+        label: 'Grid Layout'
+        reloadIfChanged: true
+        inspector:
+          group: settings
+          editor: Content/Inspector/Editors/SelectBoxEditor
+          editorOptions:
+            placeholder: '321'
+            values:
+              221:
+                label: '221'
+              321:
+                label: '321'
+              421:
+                label: '421'

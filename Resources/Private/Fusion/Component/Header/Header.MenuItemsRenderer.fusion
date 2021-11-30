@@ -1,0 +1,21 @@
+prototype(Triangular.Site:Component.Header.MenuItemsRenderer) < prototype(Neos.Fusion:Component) {
+    items = false
+
+    @if.has = ${this.items}
+    renderer = afx`
+    <Neos.Fusion:Loop items={props.items} itemName="menuItem" @children="itemRenderer">
+        <a class={'navigation-item ' + (menuItem.state ? 'navigation-item--state-' + menuItem.state : '') }>
+            <Carbon.Link:Link
+              node={menuItem.node}
+              backendLink={true}
+              renderDefaultTagIfNoLink={true}>
+              { menuItem.label }
+            </Carbon.Link:Link>
+
+            <Triangular.Site:Component.Header.MenuItemsRenderer
+            items={menuItem.subItems}
+            />
+        </a>
+    </Neos.Fusion:Loop>
+    `
+}

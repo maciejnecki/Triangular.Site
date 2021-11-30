@@ -1,0 +1,51 @@
+
+'Triangular.Site:Document.HomePage':
+  superTypes:
+    'Triangular.Site:Document.AbstractPage': true
+    'Triangular.Site:Constraint.Document.Restricted': true
+    'Triangular.Site:Mixin.InspectorGeneral': true
+  ui:
+    label: i18n
+    icon: globe
+  properties:
+    footerInfo:
+      type: string
+      ui:
+        inlineEditable: true
+        inline:
+          editorOptions:
+            formatting:
+              a: true
+            placeholder: i18n
+    headerText:
+      type: string
+      defaultValue: 'Site Name'
+      ui:
+        label: 'Site Title'
+        inlineEditable: false
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'general'
+          editorOptions:
+            placeholder: 'Enter title here'
+    headerLogo:
+      type: 'Neos\Media\Domain\Model\ImageInterface'
+      ui:
+        label: 'Logo'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'general'
+          editorOptions:
+            features:
+              crop: true
+              resize: false
+    footerItems:
+      type: references
+      ui:
+        label: i18n
+        reloadIfChanged: true
+        inspector:
+          group: general
+          editorOptions:
+            nodeTypes:
+              - 'Neos.Neos:Document'

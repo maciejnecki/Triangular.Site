@@ -1,0 +1,79 @@
+prototype(Triangular.Site:Component.Header) < prototype(Neos.Fusion:Component) {
+    homeLink = Neos.Neos:NodeUri {
+        node = ${site}
+    }
+    menuItems = Neos.Neos:MenuItems {
+        startingPoint = ${site}
+        maximumLevels = 2
+    }
+    headerText = ${q(site).property('headerText')}
+    headerLogo = ${q(site).property('headerLogo')}
+    lazy = ${q(node).prev().is()}
+    src = Neos.Fusion:Case {
+        image {
+            condition = ${q(site).property('headerLogo') ? true : false}
+            renderer = Sitegeist.Kaleidoscope:AssetImageSource {
+                asset = ${q(site).property('headerLogo')}
+            }
+        }
+    }
+
+    renderer = afx`
+        <header class="main-header">
+            <div id="navigation">
+                <a id="site-logo" href="/">
+                  <strong @if.has={props.headerText}>
+                    {props.headerText}
+                  </strong>
+                  <Sitegeist.Lazybones:Image @if.has={props.src}
+                      class="container-image"
+                      lazy={true}
+                      lazyWidth={200}
+                      imageSource={props.src}
+                      srcset="320w, 400w, 480w, 600w, 640w, 720w, 768w, 800w, 960w, 1024px, 1280w, 1440w, 1600w, 1680w, 1920w, 2560w"
+                      sizes={props.sizes}
+                  />
+                </a>
+
+                <nav id="primary-menu">
+                    <input type="checkbox" id="primary-menu-button" name="menu-button" class="menu-button"></input>
+                    <label for="primary-menu-button">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="3" y1="12" x2="21" y2="12"></line>
+                            <line x1="3" y1="6" x2="21" y2="6"></line>
+                            <line x1="3" y1="18" x2="21" y2="18"></line>
+                        </svg>
+                    </label>
+                    <div class="menu-items">
+                      <Triangular.Site:Component.Header.MenuItemsRenderer items={props.menuItems} />
+                    </div>
+                </nav>
+
+                <!-- <nav id="secondary-menu">
+                    <input type="checkbox" id="secondary-menu-button" name="menu-button" class="menu-button"></input>
+                    <label for="secondary-menu-button">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="1"></circle>
+                            <circle cx="12" cy="5" r="1"></circle>
+                            <circle cx="12" cy="19" r="1"></circle>
+                        </svg>
+                    </label>
+                    <div class="menu-items right">
+                        <a href="#">My account</a>
+                        <a href="/">Logout</a>
+                    </div>
+                </nav> -->
+            </div>
+        </header>
+    `
+
+	@cache {
+		mode = 'cached'
+		entryIdentifier {
+			documentNode = ${documentNode}
+		}
+		entryTags {
+			1 = ${Neos.Caching.nodeTypeTag('Neos.Neos:Document', documentNode)}
+		}
+	}
+}

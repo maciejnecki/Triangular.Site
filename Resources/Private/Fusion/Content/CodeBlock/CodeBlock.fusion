@@ -1,0 +1,9 @@
+prototype(Triangular.Site:Content.CodeBlock) < prototype(Neos.Neos:ContentComponent) {
+    @context.node = ${node}
+
+    code = ${q(node).property('code')}
+
+    renderer = afx`
+        {props.code}
+    `
+}

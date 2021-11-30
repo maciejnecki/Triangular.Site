@@ -1,0 +1,12 @@
+prototype(Triangular.Site:Content.Grid) < prototype(Neos.Neos:ContentComponent) {
+    @context.node = ${node}
+
+    type = ${q(node).property('type')}
+
+
+    renderer = afx`
+        <div class={'grid-' + props.type}>
+            <Neos.Neos:ContentCollectionRenderer/>
+        </div>
+    `
+}

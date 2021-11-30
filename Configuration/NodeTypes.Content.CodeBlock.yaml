@@ -1,0 +1,25 @@
+'Triangular.Site:Content.CodeBlock':
+  superTypes:
+    'Neos.Neos:Content': true
+    'Shel.Blog:Constraint.Article': true
+  ui:
+    label: Code Block
+    icon: code
+    position: 200
+    inlineEditable: false
+    inspector:
+      groups:
+        settings:
+          label: 'Settings'
+  properties:
+    code:
+      type: 'string'
+      ui:
+        label: 'Code'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'settings'
+          editor: 'Neos.Neos/Inspector/Editors/CodeEditor'
+          editorOptions:
+            buttonLabel: 'Enter Code'
+            highlightingMode: 'text/html'

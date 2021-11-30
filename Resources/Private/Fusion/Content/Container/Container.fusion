@@ -1,0 +1,26 @@
+prototype(Triangular.Site:Content.Container) < prototype(Neos.Neos:ContentComponent) {
+    @context.node = ${node}
+
+    centering = ${q(node).property('centering')}
+    color = ${q(node).property('color')}
+    backgroundPosition = ${q(node).property('backgroundPosition')}
+
+
+
+    lazy = ${q(node).prev().is()}
+    src = Neos.Fusion:Case {
+        image {
+            condition = ${q(node).property('backgroundImage') ? true : false}
+            renderer = Sitegeist.Kaleidoscope:AssetImageSource {
+                asset = ${q(node).property('backgroundImage')}
+            }
+        }
+    }
+
+    renderer = afx`
+        <div class={'container ' + props.centering + ' ' + props.color}
+        style={ 'background-image:' + 'url(' + props.src + '); background-position:' + props.backgroundPosition}>
+            <Neos.Neos:ContentCollectionRenderer/>
+        </div>
+    `
+}

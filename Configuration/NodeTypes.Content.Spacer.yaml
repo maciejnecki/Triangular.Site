@@ -1,0 +1,54 @@
+'Triangular.Site:Content.Spacer':
+  superTypes:
+    'Neos.Neos:Content': true
+    'Neos.Neos:ContentCollection': true
+    'Shel.Blog:Constraint.Article': true
+  ui:
+    label: Spacer
+    reloadIfChanged: true
+    icon: arrows-v
+    position: 200
+    group: structure
+    inlineEditable: true
+    inspector:
+      groups:
+        settings:
+          label: 'Settings'
+  constraints:
+    nodeTypes:
+      'Neos.Neos:Content': false
+  properties:
+    type:
+      type: string
+      defaultValue: 'spacer'
+      ui:
+        label: 'Grid Layout'
+        reloadIfChanged: true
+        inspector:
+          group: settings
+          editor: Content/Inspector/Editors/SelectBoxEditor
+          editorOptions:
+            placeholder: 'Default'
+            values:
+              spacer-4xl:
+                label: '4XL'
+              spacer-3xl:
+                label: '3XL'
+              spacer-2xl:
+                label: '2XL'
+              spacer-xl:
+                label: 'XL'
+              spacer-l:
+                label: 'L'
+              spacer:
+                label: 'Default'
+              spacer-s:
+                label: 'S'
+              spacer-xs:
+                label: 'XS'
+              spacer-2xs:
+                label: '2XS'
+              spacer-3xs:
+                label: '3XS'
+              spacer-4xs:
+                label: '4XS'

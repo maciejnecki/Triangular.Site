@@ -1,0 +1,6 @@
+
+Neos:
+  Flow:
+    session:
+      # Disable session timeout during development
+      inactivityTimeout: 0

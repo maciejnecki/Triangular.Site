@@ -1,0 +1,33 @@
+'Triangular.Site:Content.Button':
+  superTypes:
+    'Neos.Neos:Content': true
+    'Triangular.Site:Mixin.StandardCustomisation': true
+    'Shel.Blog:Constraint.Article': true
+  ui:
+    label: 'Button'
+    icon: icon-toggle-on
+    position: -8
+    inspector:
+      groups:
+        settings:
+          label: 'Settings'
+  properties:
+    title:
+      type: string
+      defaultValue: 'Button Title'
+      ui:
+        label: 'Title'
+        reloadIfChanged: true
+        inlineEditable: false
+        inspector:
+          group: 'settings'
+          editorOptions:
+            placeholder: 'Enter title here'
+    url:
+      type: string
+      ui:
+        label: 'Button Link'
+        reloadIfChanged: true
+        inspector:
+          group: 'settings'
+          editor: 'Neos.Neos/Inspector/Editors/LinkEditor'

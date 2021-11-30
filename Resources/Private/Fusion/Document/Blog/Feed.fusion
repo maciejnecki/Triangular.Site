@@ -1,0 +1,5 @@
+prototype(Shel.Blog:Document.Feed) < prototype(Triangular.Site:Document.Page) {
+  body.content.main = Neos.Neos:PrimaryContent {
+      nodePath = 'main'
+  }
+}
