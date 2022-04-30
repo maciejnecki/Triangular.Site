@@ -2,10 +2,9 @@ prototype(Triangular.Site:Content.Container) < prototype(Neos.Neos:ContentCompon
     @context.node = ${node}
 
     centering = ${q(node).property('centering')}
+    size = ${q(node).property('size')}
     color = ${q(node).property('color')}
     backgroundPosition = ${q(node).property('backgroundPosition')}
-
-
 
     lazy = ${q(node).prev().is()}
     src = Neos.Fusion:Case {
@@ -18,7 +17,7 @@ prototype(Triangular.Site:Content.Container) < prototype(Neos.Neos:ContentCompon
     }
 
     renderer = afx`
-        <div class={'container ' + props.centering + ' ' + props.color}
+        <div class={'container ' + props.centering + ' ' + props.color + ' ' + props.size}
         style={ 'background-image:' + 'url(' + props.src + '); background-position:' + props.backgroundPosition}>
             <Neos.Neos:ContentCollectionRenderer/>
         </div>

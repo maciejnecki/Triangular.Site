@@ -30,6 +30,10 @@
           editorOptions:
             placeholder: '321'
             values:
+              fill:
+                label: 'fill'
+              fit:
+                label: 'fit'
               221:
                 label: '221'
               321:

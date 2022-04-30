@@ -61,6 +61,21 @@
                 label: 'Theme Color'
               secondaryColor:
                 label: 'Secondary Color'
+    size:
+      type: string
+      defaultValue: 'standard'
+      ui:
+        label: 'Size'
+        reloadIfChanged: true
+        inspector:
+          group: 'customisation'
+          editor: Content/Inspector/Editors/SelectBoxEditor
+          editorOptions:
+            values:
+              standard:
+                label: 'Standard'
+              wide:
+                label: 'Wide'
     # backgroundColor:
     #   type: string
     #   ui:
